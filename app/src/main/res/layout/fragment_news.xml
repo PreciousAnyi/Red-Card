@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewsFragment">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/newsimageView"
+        android:layout_width="328dp"
+        android:layout_height="316dp"
+        android:layout_marginTop="27dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/female_vc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:shapeAppearanceOverlay="@style/RoundedSquare"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/newsTitleCV"
+        android:layout_width="328dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardElevation="0dp"
+        app:layout_constraintTop_toBottomOf="@id/newsimageView">
+    <LinearLayout
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:background = "@drawable/text_style"
+        app:layout_constraintBottom_toBottomOf = "parent"
+        app:layout_constraintLeft_toLeftOf = "parent"
+        app:layout_constraintRight_toRightOf = "parent"
+        app:layout_constraintTop_toTopOf = "parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="FUTO ASSIGNS NEW VC ROLE TO A WOMAN"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/newsimageView"
+            app:layout_constraintStart_toStartOf="@+id/newsimageView"
+            app:layout_constraintTop_toBottomOf="@+id/newsimageView" />
+
+    </LinearLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <ImageView
+        android:id="@+id/newsLineIV"
+        android:layout_width="328dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/newsTitleCV" />
+
+    <TextView
+        android:id="@+id/newsTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat"
+        android:text="After rigorous academic selection processes, Professor Nnenna Oti, has been announced as the new Vice Chancellor of Federal University of Technology, Owerri (FUTO).  Until the announcement of her appointment, Tuesday night, Oti, who hails from Ebonyi State, was the Deputy Vice Chancellor (Academic) of the institution.  She is to replace Professor Francis Eze, whose tenure will expire soon. The Pro-Chancellor/Chairman of the institution’s Governing Council, Prof. John Offem, announced her as FUTO’s new helmsman.  Offem said she emerged with 75.5 points to defeat her closest rival, Prof. Ikechukwu Dozie, who scored 69.7 points, and five other candidates who scaled through the interview and other hurdles.  According to the pro-chancellor, 29 applicants indicated interest in the number one seat of the institution. He hinted that after the initial screening process, seven were chosen for the final round of selection that saw to Oti’s emergence."
+        app:layout_constraintEnd_toEndOf="@+id/newsTitleCV"
+        app:layout_constraintStart_toStartOf="@+id/newsTitleCV"
+        app:layout_constraintTop_toBottomOf="@id/newsLineIV" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
