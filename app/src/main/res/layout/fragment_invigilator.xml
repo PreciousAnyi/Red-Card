@@ -50,7 +50,6 @@
         app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/examScheduleCV"
-        app:layout_constraintStart_toEnddOf="@id/examScheduleCV"
         app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
@@ -61,7 +60,6 @@
                 android:id="@+id/howToTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/dashboardNewsIconIV"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/montserrat"
