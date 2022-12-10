@@ -13,6 +13,15 @@
         <action
             android:id="@+id/action_splashFragment_to_signupFragment"
             app:destination="@id/signupFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_ExamSheduleFragment"
+            app:destination="@id/ExamSheduleFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_issueACardFragment"
+            app:destination="@id/issueACardFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_HowToFragment"
+            app:destination="@id/HowToFragment" />
     </fragment>
     <fragment
         android:id="@+id/signupFragment"
@@ -61,6 +70,15 @@
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" />
     <fragment
+        android:id="@+id/ExamSheduleFragment"
+        android:name="ps.room.redcard.ExamScheduleFragment"
+        android:label="fragment_exam_schedule"
+        tools:layout="@layout/fragment_exam_schedule" />
+    <fragment
+        android:id="@+id/HowToFragment"
+        android:name="ps.room.redcard.HowToFragment"
+        android:label="fragment_how_to"
+        tools:layout="@layout/fragment_how_to" />
         android:id="@+id/historyFragment"
         android:name="ps.room.redcard.HistoryFragment"
         android:label="fragment_history"
