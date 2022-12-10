@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/noticeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="6dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Create Signature"
+            android:textColor="@color/light_brown"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/notice_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/noticeTV"
+            android:src="@drawable/line" />
+
+        <ImageView
+            android:id="@+id/notice_line2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/notice_line"
+            android:layout_marginTop="130dp"
+            android:src="@drawable/line" />
+
+        <com.kyanogen.signatureview.SignatureView
+        xmlns:sign="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/signature_view"
+        android:layout_width="match_parent"
+        android:layout_height="129dp"
+        android:layout_below="@id/notice_line"
+        sign:penSize="5dp"
+        sign:backgroundColor="#ffffff"
+        sign:penColor="#000000"
+        sign:enableSignature="true"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/notice_line2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6.11dp"
+            android:layout_marginBottom="10.11dp"
+            android:backgroundTint="@color/green"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="SIGN"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_below="@id/notice_line2"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="27.5dp"
+            android:layout_marginTop="17.11dp"
+            android:src="@drawable/delete"/>
+
+        <ImageView
+            android:id="@+id/cancel_signature"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_below="@id/notice_line2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="27.5dp"
+            android:layout_marginTop="17.11dp"
+            android:src="@drawable/cancel"/>
+
+
+
+
+    </RelativeLayout>
+
+
+
+</com.google.android.material.card.MaterialCardView>
