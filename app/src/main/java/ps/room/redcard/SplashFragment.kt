@@ -20,7 +20,7 @@ class SplashFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_splash, container, false)
         Handler(Looper.myLooper()!!).postDelayed({
-            findNavController().navigate(R.id.action_splashFragment_to_ExamSheduleFragment)
+            findNavController().navigate(R.id.action_splashFragment_to_HowToFragment)
            /* if (onBoardingFinished()) {
                 findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
             } else {
