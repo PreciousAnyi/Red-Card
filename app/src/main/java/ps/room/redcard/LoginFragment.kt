@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import ps.room.redcard.api.LoginApi
@@ -53,9 +54,10 @@ class LoginFragment : Fragment() {
                         if(response.body()?.user == null){
                             Toast.makeText(context, "Failed", Toast.LENGTH_LONG).show()
                         } else{
-
+                            val mBundle = Bundle()
+                            mBundle.putString("personnelNo", response.body()?.user?.personnelNo)
                             Toast.makeText(context, response.body().toString(), Toast.LENGTH_LONG).show()
-                            findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment)
+                            findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment, mBundle)
                         }
                     }
 
