@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_splashFragment_to_HowToFragment"
             app:destination="@id/HowToFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/signupFragment"
@@ -39,7 +42,11 @@
         android:id="@+id/loginFragment"
         android:name="ps.room.redcard.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
     <fragment
         android:id="@+id/successFragment"
         android:name="ps.room.redcard.SuccessFragment"
