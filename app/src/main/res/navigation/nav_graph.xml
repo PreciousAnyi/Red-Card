@@ -86,4 +86,13 @@
         android:name="ps.room.redcard.HowToFragment"
         android:label="fragment_how_to"
         tools:layout="@layout/fragment_how_to" />
+        android:id="@+id/historyFragment"
+        android:name="ps.room.redcard.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/listOfOffenseFragment"
+        android:name="ps.room.redcard.ListOfOffenseFragment"
+        android:label="fragment_list_of_offense"
+        tools:layout="@layout/fragment_list_of_offense" />
 </navigation>
