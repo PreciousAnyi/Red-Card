@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/noticeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="NOTICE !!!"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="14dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/light_brown"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/notice_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/noticeTV"
+            android:src="@drawable/line"
+            />
+
+        <TextView
+            android:id="@+id/notice_detailsTV"
+            android:layout_width="271dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/notice_line"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat"
+            android:text="You’re currently billed to investigate this course"
+            android:textAlignment="center"
+            android:textColor="@color/light_brown"
+            android:textSize="16sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/proceed"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/notice_detailsTV"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="18dp"
+            android:backgroundTint="@color/green"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Proceed"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancel"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/notice_detailsTV"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="18dp"
+            android:layout_marginEnd="53dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/montserrat_medium"
+            android:textAllCaps="false"
+            app:strokeColor="@color/red"
+            app:strokeWidth="1dp"
+            android:textColor="@color/red"
+            android:text="Cancel" />
+
+
+
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>
