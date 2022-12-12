@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_splashFragment_to_HowToFragment"
             app:destination="@id/HowToFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/signupFragment"
