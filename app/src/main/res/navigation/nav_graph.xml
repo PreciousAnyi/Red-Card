@@ -14,9 +14,6 @@
             android:id="@+id/action_splashFragment_to_signupFragment"
             app:destination="@id/signupFragment" />
         <action
-            android:id="@+id/action_splashFragment_to_ExamSheduleFragment"
-            app:destination="@id/ExamSheduleFragment" />
-        <action
             android:id="@+id/action_splashFragment_to_issueACardFragment"
             app:destination="@id/issueACardFragment" />
         <action
@@ -60,17 +57,32 @@
         android:id="@+id/dashboardFragment"
         android:name="ps.room.redcard.DashboardFragment"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_ExamSheduleFragment"
+            app:destination="@id/ExamSheduleFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_invigilatorFragment"
+            app:destination="@id/invigilatorFragment" />
+    </fragment>
     <fragment
         android:id="@+id/invigilatorFragment"
         android:name="ps.room.redcard.InvigilatorFragment"
         android:label="fragment_invigilator"
-        tools:layout="@layout/fragment_invigilator" />
+        tools:layout="@layout/fragment_invigilator" >
+        <action
+            android:id="@+id/action_invigilatorFragment_to_issueACardFragment"
+            app:destination="@id/issueACardFragment" />
+    </fragment>
     <fragment
         android:id="@+id/issueACardFragment"
         android:name="ps.room.redcard.IssueACardFragment"
         android:label="fragment_issue_a_card"
-        tools:layout="@layout/fragment_issue_a_card" />
+        tools:layout="@layout/fragment_issue_a_card" >
+        <action
+            android:id="@+id/action_issueACardFragment_to_listOfOffenseFragment"
+            app:destination="@id/listOfOffenseFragment" />
+    </fragment>
     <fragment
         android:id="@+id/newsFragment"
         android:name="ps.room.redcard.NewsFragment"

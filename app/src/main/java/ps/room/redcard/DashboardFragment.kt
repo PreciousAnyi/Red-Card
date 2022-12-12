@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
 
 
@@ -26,6 +27,23 @@ class DashboardFragment : Fragment() {
 
         // Inflate the layout for this fragment
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val examScheduleCV = view.findViewById<View>(R.id.examScheduleCV)
+        examScheduleCV.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment_to_ExamSheduleFragment)
+        }
+
+
+        val invigilatorCV = view.findViewById<View>(R.id.invigilatorCV)
+        invigilatorCV.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment_to_invigilatorFragment)
+        }
+
+
     }
 
 
