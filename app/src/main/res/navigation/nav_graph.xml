@@ -62,8 +62,14 @@
             android:id="@+id/action_dashboardFragment_to_ExamSheduleFragment"
             app:destination="@id/ExamSheduleFragment" />
         <action
+            android:id="@+id/action_dashboardFragment_to_HowToFragment"
+            app:destination="@id/HowToFragment" />
+        <action
             android:id="@+id/action_dashboardFragment_to_invigilatorFragment"
             app:destination="@id/invigilatorFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
     <fragment
         android:id="@+id/invigilatorFragment"
@@ -73,6 +79,15 @@
         <action
             android:id="@+id/action_invigilatorFragment_to_issueACardFragment"
             app:destination="@id/issueACardFragment" />
+        <action
+            android:id="@+id/action_invigilatorFragment_to_listOfOffenseFragment"
+            app:destination="@id/listOfOffenseFragment" />
+        <action
+            android:id="@+id/action_invigilatorFragment_to_downloadImageFragment"
+            app:destination="@id/downloadImageFragment" />
+        <action
+            android:id="@+id/action_invigilatorFragment_to_captureAttendanceFragment"
+            app:destination="@id/captureAttendanceFragment" />
     </fragment>
     <fragment
         android:id="@+id/issueACardFragment"
@@ -82,6 +97,12 @@
         <action
             android:id="@+id/action_issueACardFragment_to_listOfOffenseFragment"
             app:destination="@id/listOfOffenseFragment" />
+        <action
+            android:id="@+id/action_issueACardFragment_self"
+            app:destination="@id/issueACardFragment" />
+        <action
+            android:id="@+id/action_issueACardFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
     <fragment
         android:id="@+id/newsFragment"
@@ -97,7 +118,11 @@
         android:id="@+id/HowToFragment"
         android:name="ps.room.redcard.HowToFragment"
         android:label="fragment_how_to"
-        tools:layout="@layout/fragment_how_to" />
+        tools:layout="@layout/fragment_how_to" >
+        <action
+            android:id="@+id/action_HowToFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
+    </fragment>
         android:id="@+id/historyFragment"
         android:name="ps.room.redcard.HistoryFragment"
         android:label="fragment_history"
@@ -106,5 +131,24 @@
         android:id="@+id/listOfOffenseFragment"
         android:name="ps.room.redcard.ListOfOffenseFragment"
         android:label="fragment_list_of_offense"
-        tools:layout="@layout/fragment_list_of_offense" />
+        tools:layout="@layout/fragment_list_of_offense" >
+        <action
+            android:id="@+id/action_listOfOffenseFragment_to_issueACardFragment"
+            app:destination="@id/issueACardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="ps.room.redcard.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/downloadImageFragment"
+        android:name="ps.room.redcard.DownloadImageFragment"
+        android:label="fragment_download_image"
+        tools:layout="@layout/fragment_download_image" />
+    <fragment
+        android:id="@+id/captureAttendanceFragment"
+        android:name="ps.room.redcard.CaptureAttendanceFragment"
+        android:label="fragment_capture_attendance"
+        tools:layout="@layout/fragment_capture_attendance" />
 </navigation>

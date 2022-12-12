@@ -34,19 +34,18 @@
             android:layout_marginTop="130dp"
             android:src="@drawable/line" />
 
-        <com.kyanogen.signatureview.SignatureView
-        xmlns:sign="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/signature_view"
-        android:layout_width="match_parent"
-        android:layout_height="129dp"
-        android:layout_below="@id/notice_line"
-        sign:penSize="5dp"
-        sign:backgroundColor="#ffffff"
-        sign:penColor="#000000"
-        sign:enableSignature="true"/>
+        <com.kyanogen.signatureview.SignatureView xmlns:sign="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/signature_view3"
+            android:layout_width="match_parent"
+            android:layout_height="129dp"
+            android:layout_below="@id/notice_line"
+            sign:backgroundColor="#ffffff"
+            sign:enableSignature="true"
+            sign:penColor="#000000"
+            sign:penSize="5dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/signMB"
+            android:id="@+id/signMB3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/notice_line2"
@@ -61,7 +60,7 @@
             android:textSize="16sp" />
 
         <ImageView
-            android:id="@+id/delete_signature"
+            android:id="@+id/delete_signature3"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_below="@id/notice_line2"
@@ -71,7 +70,7 @@
             android:src="@drawable/delete" />
 
         <ImageView
-            android:id="@+id/cancel_signature"
+            android:id="@+id/cancel_signature3"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_below="@id/notice_line2"

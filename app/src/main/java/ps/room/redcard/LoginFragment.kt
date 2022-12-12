@@ -18,10 +18,13 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.converter.gson.GsonConverterFactory
+import android.widget.Button
+import androidx.navigation.fragment.findNavController
 
 
 class LoginFragment : Fragment() {
 
+    private lateinit var button: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

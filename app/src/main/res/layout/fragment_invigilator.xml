@@ -42,7 +42,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/howToCV"
+        android:id="@+id/classListCV"
         android:layout_width="156dp"
         android:layout_height="178dp"
         android:layout_marginStart="16dp"
@@ -74,7 +74,7 @@
 
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/historyCV"
+        android:id="@+id/attendanceCV"
         android:layout_width="156dp"
         android:layout_height="178dp"
         android:layout_marginTop="60dp"

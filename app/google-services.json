@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "64195592834",
+    "project_id": "redcard-ce17e",
+    "storage_bucket": "redcard-ce17e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:64195592834:android:e241c1c0ece57c96976a9b",
+        "android_client_info": {
+          "package_name": "ps.room.redcard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "64195592834-d9qd17u0aetb289b5it5obmud74qbsbh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEUsDMnpaaMCwNQXjEKO11IlPeRBGpLnc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "64195592834-d9qd17u0aetb289b5it5obmud74qbsbh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

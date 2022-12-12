@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="45dp"
         android:layout_marginEnd="129dp"
         android:src="@drawable/logo__1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,11 +87,10 @@
         android:id="@+id/howToCV"
         android:layout_width="156dp"
         android:layout_height="178dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="60dp"
         app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/examScheduleCV"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/loginWelcomeTV">
 
         <RelativeLayout
@@ -104,8 +103,7 @@
                 android:layout_height="72dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp"
-                android:src="@drawable/schedule_icon"
-                app:srcCompat="@drawable/book_icon" />
+                android:src="@drawable/book_icon" />
 
             <TextView
                 android:id="@+id/howToTV"
@@ -197,8 +195,7 @@
                 android:layout_height="72dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp"
-                android:src="@drawable/schedule_icon"
-                app:srcCompat="@drawable/profile_icon" />
+                android:src="@drawable/profile_icon"/>
 
             <TextView
                 android:id="@+id/invigilatorTV"
@@ -222,6 +219,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="205dp" />
+        app:layout_constraintGuide_begin="183dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

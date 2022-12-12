@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
@@ -28,6 +29,7 @@ class SignupFragment : Fragment() {
 
     private lateinit var viewModel: SignupViewModel
     private lateinit var button: Button
+    private lateinit var signIn: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +43,11 @@ class SignupFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val signUpAuth = view.findViewById<View>(R.id.sign_up_auth)
+        signIn = view.findViewById(R.id.signupSignin)
+
+        signIn.setOnClickListener {
+            findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
+        }
         signUpAuth.setOnClickListener {
             val personnelNoTv = view.findViewById<View>(R.id.SignupPersonnelEdit) as TextInputEditText
             val personnelNo = personnelNoTv.text.toString()

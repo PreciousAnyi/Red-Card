@@ -24,15 +24,36 @@
         <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/drawable/button.xml" value="0.1" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/drawable/sign_button.xml" value="0.102" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/drawable/text_style.xml" value="0.102" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/activity_main.xml" value="0.1871275327771156" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/fragment_capture_attendance.xml" value="0.24728260869565216" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/fragment_dashboard.xml" value="0.24365942028985507" />
+<<<<<<< HEAD
+=======
+        <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/fragment_download_image.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/fragment_exam_schedule.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/fragment_history.xml" value="0.33" />
+>>>>>>> 44fcb078e8501605789a2688153354ed2801a0a2
         <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/fragment_how_to.xml" value="0.33" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/fragment_invigilator.xml" value="0.24365942028985507" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/fragment_issue_a_card.xml" value="0.33" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/fragment_login.xml" value="0.24365942028985507" />
+<<<<<<< HEAD
         <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/fragment_signup.xml" value="0.22" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/fragment_splash.xml" value="0.24365942028985507" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/fragment_success.xml" value="0.24365942028985507" />
+=======
+        <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/fragment_news.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/fragment_past.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/fragment_signup.xml" value="0.22" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/fragment_splash.xml" value="0.24365942028985507" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/fragment_success.xml" value="0.24365942028985507" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/history_item_design.xml" value="0.22268326417704012" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/list_of_offense_design.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/notice_dialog.xml" value="0.18" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/signature_pad.xml" value="0.33" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/signature_pad3.xml" value="0.2671875" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/RedCard3/app/src/main/res/layout/signature_pad_2.xml" value="0.2671875" />
+>>>>>>> 44fcb078e8501605789a2688153354ed2801a0a2
       </map>
     </option>
   </component>
