@@ -13,7 +13,19 @@ import com.google.android.material.textfield.TextInputEditText
 import android.widget.Button
 import android.widget.ImageView
 import com.google.android.material.button.MaterialButton
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.kyanogen.signatureview.SignatureView
+import ps.room.redcard.api.IssueCardApi
+import ps.room.redcard.api.LoginApi
+import ps.room.redcard.data.Card
+import ps.room.redcard.data.IssueCard
+import ps.room.redcard.data.issueCardResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class IssueACardFragment : Fragment() {
 
@@ -149,14 +161,32 @@ class IssueACardFragment : Fragment() {
             val studentRegNo = studentRegNoTv.text.toString()
             val invigilatorSpNo = invigilatorSpNoTv.text.toString()
 
+            val offensePts = arguments?.getString("offense")
+            val offenseHead = arguments?.getString("heading")
+            val card = Card(offenseHead!!, offensePts!!, studentRegNo)
+            val isshCard= IssueCard(card, invigilatorSpNo)
+            val cardjson = Gson().toJson(card)
 
-            val mBundle = Bundle()
-            mBundle.putString("invigilatorSpNo", invigilatorSpNo)
-            mBundle.putString("studentRegNo", studentRegNo)
-            Toast.makeText(context, studentRegNo +" : "+ invigilatorSpNo, Toast.LENGTH_LONG).show()
-            findNavController().navigate(R.id.action_issueACardFragment_to_listOfOffenseFragment, mBundle)
+//            Toast.makeText(context, offensePts + " ::: " + offenseHead + "  ::: " + studentRegNo+ " :: " + invigilatorSpNo, Toast.LENGTH_LONG).show()
+            val retrofitBuilder = Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl("https://RedCard.onotuumoru.repl.co/")
+                .build()
+                .create(IssueCardApi::class.java)
 
+            val retrofitData = retrofitBuilder.issueCard(isshCard)
+                .enqueue(object : Callback<issueCardResponse>{
+                    override fun onResponse(call: Call<issueCardResponse>, response: Response<issueCardResponse>) {
+                        Toast.makeText(context, response.body().toString(), Toast.LENGTH_LONG).show()
+                    }
+
+                    override fun onFailure(call: Call<issueCardResponse>, t: Throwable) {
+                        Toast.makeText(context, t.message, Toast.LENGTH_LONG).show()
+                    }
+
+                })
         }
+
     }
 
 }
