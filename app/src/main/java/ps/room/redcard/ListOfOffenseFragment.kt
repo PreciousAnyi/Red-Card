@@ -36,7 +36,6 @@ class ListOfOffenseFragment : Fragment() {
 
         adapter.setOnItemClickListener(object : ListOfOffenseAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
-                TODO("Not yet implemented fully")
                 findNavController().navigate(R.id.action_listOfOffenseFragment_to_issueACardFragment)
             }
 

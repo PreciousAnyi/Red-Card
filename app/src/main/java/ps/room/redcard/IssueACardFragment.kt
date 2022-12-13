@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import com.google.android.material.button.MaterialButton
 import com.kyanogen.signatureview.SignatureView
 
@@ -16,6 +17,9 @@ class IssueACardFragment : Fragment() {
 
     companion object {
         fun newInstance() = IssueACardFragment()
+            /*const val Offense = "offenseID"
+            const val OffensePoint = "offensepoint"*/
+
     }
 
     private lateinit var viewModel: IssueACardViewModel
@@ -40,6 +44,12 @@ class IssueACardFragment : Fragment() {
     private lateinit var cancelIcon3: ImageView
     private lateinit var deleteIcon3: ImageView
 
+    private lateinit var offense: String
+    private lateinit var offensepoint: String
+    private lateinit var offenseTV: TextView
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,6 +59,9 @@ class IssueACardFragment : Fragment() {
         signButton1 = view.findViewById(R.id.Signbutton)
         signButton2 = view.findViewById(R.id.ChiefInvigilatorSignbutton)
         signButton3 = view.findViewById(R.id.ExamOfficerSignbutton)
+        offenseTV = view.findViewById(R.id.offenseTV)
+
+        /*offenseTV.text = offense*/
 
 
 
@@ -132,5 +145,14 @@ class IssueACardFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(IssueACardViewModel::class.java)
         // TODO: Use the ViewModel
     }
+
+   /* override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments.let {
+            offense = it?.getString(Offense).toString()
+            offensepoint = it?.getString(OffensePoint).toString()
+
+        }
+    }*/
 
 }
