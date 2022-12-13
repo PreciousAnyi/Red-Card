@@ -38,7 +38,6 @@ class ListOfOffenseFragment : Fragment() {
 
         adapter.setOnItemClickListener(object : ListOfOffenseAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
-
                 val mBundle = Bundle()
                 mBundle.putString("offense", items[position].offense)
                 mBundle.putString("heading", items[position].heading)

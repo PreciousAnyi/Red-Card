@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import com.google.android.material.button.MaterialButton
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -31,6 +32,9 @@ class IssueACardFragment : Fragment() {
 
     companion object {
         fun newInstance() = IssueACardFragment()
+            /*const val Offense = "offenseID"
+            const val OffensePoint = "offensepoint"*/
+
     }
 
     private lateinit var viewModel: IssueACardViewModel
@@ -55,6 +59,12 @@ class IssueACardFragment : Fragment() {
     private lateinit var cancelIcon3: ImageView
     private lateinit var deleteIcon3: ImageView
 
+    private lateinit var offense: String
+    private lateinit var offensepoint: String
+    private lateinit var offenseTV: TextView
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -64,6 +74,9 @@ class IssueACardFragment : Fragment() {
         signButton1 = view.findViewById(R.id.Signbutton)
         signButton2 = view.findViewById(R.id.ChiefInvigilatorSignbutton)
         signButton3 = view.findViewById(R.id.ExamOfficerSignbutton)
+        offenseTV = view.findViewById(R.id.offenseTV)
+
+        /*offenseTV.text = offense*/
 
 
 
@@ -188,5 +201,14 @@ class IssueACardFragment : Fragment() {
         }
 
     }
+
+   /* override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments.let {
+            offense = it?.getString(Offense).toString()
+            offensepoint = it?.getString(OffensePoint).toString()
+
+        }
+    }*/
 
 }
