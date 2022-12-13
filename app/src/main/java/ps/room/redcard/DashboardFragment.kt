@@ -28,6 +28,10 @@ class DashboardFragment : Fragment() {
 
         val tv = view.findViewById<View>(R.id.loginWelcomeTV) as TextView
         val personnelNo = arguments?.getString("personnelNo")
+        val password = arguments?.getString("password")
+        val mBundle = Bundle()
+        mBundle.putString("personnelNo", personnelNo)
+        mBundle.putString("password", password)
 
         tv.text = "Welcome " + personnelNo
 
@@ -45,7 +49,7 @@ class DashboardFragment : Fragment() {
             findNavController().navigate(R.id.action_dashboardFragment_to_HowToFragment)
         }
         history.setOnClickListener {
-            findNavController().navigate(R.id.action_dashboardFragment_to_historyFragment)
+            findNavController().navigate(R.id.action_dashboardFragment_to_historyFragment, mBundle)
         }
         invigilator.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment_to_invigilatorFragment)
