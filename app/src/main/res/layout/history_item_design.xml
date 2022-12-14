@@ -24,6 +24,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
+                    android:id="@+id/offencePtsDisplay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -31,8 +32,34 @@
                     android:text="3pts"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
+
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
+
+        <RelativeLayout
+            android:layout_width="200sp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="80sp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:id="@+id/studentRegNoDisplay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Student Reg No: " />
+                <TextView
+                    android:id="@+id/invigilatorSpNoDisplay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Invigilator Sp No: "
+                    android:layout_marginTop="20dp"
+                    />
+            </RelativeLayout>
+        </RelativeLayout>
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="wrap_content"

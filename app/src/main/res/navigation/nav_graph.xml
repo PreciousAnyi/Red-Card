@@ -14,9 +14,6 @@
             android:id="@+id/action_splashFragment_to_signupFragment"
             app:destination="@id/signupFragment" />
         <action
-            android:id="@+id/action_splashFragment_to_ExamSheduleFragment"
-            app:destination="@id/ExamSheduleFragment" />
-        <action
             android:id="@+id/action_splashFragment_to_issueACardFragment"
             app:destination="@id/issueACardFragment" />
         <action
@@ -80,6 +77,9 @@
         android:label="fragment_invigilator"
         tools:layout="@layout/fragment_invigilator" >
         <action
+            android:id="@+id/action_invigilatorFragment_to_issueACardFragment"
+            app:destination="@id/issueACardFragment" />
+        <action
             android:id="@+id/action_invigilatorFragment_to_listOfOffenseFragment"
             app:destination="@id/listOfOffenseFragment" />
         <action
@@ -94,6 +94,9 @@
         android:name="ps.room.redcard.IssueACardFragment"
         android:label="fragment_issue_a_card"
         tools:layout="@layout/fragment_issue_a_card" >
+        <action
+            android:id="@+id/action_issueACardFragment_to_listOfOffenseFragment"
+            app:destination="@id/listOfOffenseFragment" />
         <action
             android:id="@+id/action_issueACardFragment_self"
             app:destination="@id/issueACardFragment" />

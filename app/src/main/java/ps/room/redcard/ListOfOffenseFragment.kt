@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -36,7 +38,12 @@ class ListOfOffenseFragment : Fragment() {
 
         adapter.setOnItemClickListener(object : ListOfOffenseAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
-                findNavController().navigate(R.id.action_listOfOffenseFragment_to_issueACardFragment)
+                val mBundle = Bundle()
+                mBundle.putString("offense", items[position].offense)
+                mBundle.putString("heading", items[position].heading)
+
+                Toast.makeText(context, items[position].offense + "  :::  "+ items[position].heading, Toast.LENGTH_LONG).show()
+                findNavController().navigate(R.id.action_listOfOffenseFragment_to_issueACardFragment, mBundle)
             }
 
         })
@@ -45,8 +52,11 @@ class ListOfOffenseFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val view = inflater.inflate(R.layout.fragment_list_of_offense, container, false)
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list_of_offense, container, false)
+        return view
     }
     }
 

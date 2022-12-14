@@ -38,4 +38,13 @@ class InvigilatorFragment : Fragment() {
         return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+//        val issueACard = view.findViewById<View>(R.id.issueACardCV)
+//        issueACard.setOnClickListener {
+//            findNavController().navigate(R.id.action_invigilatorFragment_to_issueACardFragment)
+//        }
+     }
+
 }

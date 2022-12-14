@@ -59,6 +59,7 @@ class LoginFragment : Fragment() {
                         } else{
                             val mBundle = Bundle()
                             mBundle.putString("personnelNo", response.body()?.user?.personnelNo)
+                            mBundle.putString("password", password)
                             Toast.makeText(context, response.body().toString(), Toast.LENGTH_LONG).show()
                             findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment, mBundle)
                         }

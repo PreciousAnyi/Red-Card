@@ -7,11 +7,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.textfield.TextInputEditText
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.google.android.material.button.MaterialButton
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.kyanogen.signatureview.SignatureView
+import ps.room.redcard.api.IssueCardApi
+import ps.room.redcard.api.LoginApi
+import ps.room.redcard.data.Card
+import ps.room.redcard.data.IssueCard
+import ps.room.redcard.data.issueCardResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class IssueACardFragment : Fragment() {
 
@@ -144,6 +159,47 @@ class IssueACardFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(IssueACardViewModel::class.java)
         // TODO: Use the ViewModel
+
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val issueBtn = view.findViewById<View>(R.id.issuebutton)
+        issueBtn.setOnClickListener {
+//            Toast.makeText(context, "works", Toast.LENGTH_SHORT).show()
+
+            val studentRegNoTv = view.findViewById<View>(R.id.StudentRegNoEdit) as TextInputEditText
+            val invigilatorSpNoTv = view.findViewById<View>(R.id.InvigilatorSpNoEdit) as TextInputEditText
+            val studentRegNo = studentRegNoTv.text.toString()
+            val invigilatorSpNo = invigilatorSpNoTv.text.toString()
+
+            val offensePts = arguments?.getString("offense")
+            val offenseHead = arguments?.getString("heading")
+            val card = Card(offenseHead!!, offensePts!!, studentRegNo)
+            val isshCard= IssueCard(card, invigilatorSpNo)
+            val cardjson = Gson().toJson(card)
+
+//            Toast.makeText(context, offensePts + " ::: " + offenseHead + "  ::: " + studentRegNo+ " :: " + invigilatorSpNo, Toast.LENGTH_LONG).show()
+            val retrofitBuilder = Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl("https://RedCard.onotuumoru.repl.co/")
+                .build()
+                .create(IssueCardApi::class.java)
+
+            val retrofitData = retrofitBuilder.issueCard(isshCard)
+                .enqueue(object : Callback<issueCardResponse>{
+                    override fun onResponse(call: Call<issueCardResponse>, response: Response<issueCardResponse>) {
+                        Toast.makeText(context, response.body().toString(), Toast.LENGTH_LONG).show()
+                    }
+
+                    override fun onFailure(call: Call<issueCardResponse>, t: Throwable) {
+                        Toast.makeText(context, t.message, Toast.LENGTH_LONG).show()
+                    }
+
+                })
+        }
+
     }
 
    /* override fun onCreate(savedInstanceState: Bundle?) {

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.card.MaterialCardView
@@ -27,6 +28,10 @@ class DashboardFragment : Fragment() {
 
         val tv = view.findViewById<View>(R.id.loginWelcomeTV) as TextView
         val personnelNo = arguments?.getString("personnelNo")
+        val password = arguments?.getString("password")
+        val mBundle = Bundle()
+        mBundle.putString("personnelNo", personnelNo)
+        mBundle.putString("password", password)
 
         tv.text = "Welcome " + personnelNo
 
@@ -44,13 +49,30 @@ class DashboardFragment : Fragment() {
             findNavController().navigate(R.id.action_dashboardFragment_to_HowToFragment)
         }
         history.setOnClickListener {
-            findNavController().navigate(R.id.action_dashboardFragment_to_historyFragment)
+            findNavController().navigate(R.id.action_dashboardFragment_to_historyFragment, mBundle)
         }
         invigilator.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment_to_invigilatorFragment)
         }
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val examScheduleCV = view.findViewById<View>(R.id.examScheduleCV)
+        examScheduleCV.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment_to_ExamSheduleFragment)
+        }
+
+
+        val invigilatorCV = view.findViewById<View>(R.id.invigilatorCV)
+        invigilatorCV.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment_to_invigilatorFragment)
+        }
+
+
     }
 
 
