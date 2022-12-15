@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ps.room.redcard.adapters.HowToAdapter
@@ -32,7 +33,7 @@ class HowToFragment : Fragment() {
 
         adapter.setOnItemClickListener(object : HowToAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
-                TODO("Not yet implemented")
+                Toast.makeText(context, "Cool Stuff", Toast.LENGTH_SHORT).show()
             }
 
         })
