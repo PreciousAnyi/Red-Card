@@ -25,7 +25,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginEnd="119dp"
         android:fontFamily="@font/montserrat"
-        android:text="Welcome,"
+        android:text="Welcome"
         android:textColor="@color/red_10"
         android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +40,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginEnd="119dp"
         android:fontFamily="@font/montserrat"
-        android:text="Precious!"
+        android:text="Back!"
         android:textColor="@color/red_10"
         android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +50,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/LoginPersonnelContainer"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="364dp"
+        android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="44dp"
@@ -84,7 +84,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/LoginPasswordContainer"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="364dp"
+        android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -118,16 +118,15 @@
 
     <TextView
         android:id="@+id/loginForgottenPasswordTV"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="244dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="22dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/montserrat"
         android:text="Forgotten Password?"
         android:textColor="@color/red_10"
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.939"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginPasswordContainer" />
 
