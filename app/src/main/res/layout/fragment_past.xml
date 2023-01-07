@@ -13,7 +13,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/Cv3"
@@ -23,6 +23,7 @@
                 android:layout_marginBottom="8sp"
                 app:cardBackgroundColor="#F7F7F7"
                 app:cardElevation="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -34,7 +35,7 @@
                     <LinearLayout
                         android:id="@+id/linearLayout"
                         android:layout_width="match_parent"
-                        android:layout_height="30sp"
+                        android:layout_height="38sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
@@ -65,7 +66,7 @@
                     <View
                         android:layout_width="340sp"
                         android:layout_height="2dp"
-                        android:layout_marginTop="34dp"
+                        android:layout_marginTop="40dp"
                         android:background="#c0c0c0"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"

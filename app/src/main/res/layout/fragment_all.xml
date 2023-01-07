@@ -34,7 +34,7 @@
                     <LinearLayout
                         android:id="@+id/linearLayout"
                         android:layout_width="match_parent"
-                        android:layout_height="30sp"
+                        android:layout_height="38sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
@@ -65,7 +65,7 @@
                     <View
                         android:layout_width="340sp"
                         android:layout_height="2dp"
-                        android:layout_marginTop="34dp"
+                        android:layout_marginTop="40dp"
                         android:background="#c0c0c0"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -270,7 +270,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="30sp"
+                        android:layout_height="38sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
@@ -302,7 +302,7 @@
                         android:id="@+id/line3"
                         android:layout_width="340sp"
                         android:layout_height="2dp"
-                        android:layout_marginTop="34dp"
+                        android:layout_marginTop="40dp"
                         android:background="#c0c0c0"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"

@@ -48,7 +48,7 @@ class HistoryFragment : Fragment() {
         val password = arguments?.getString("password")
 
 
-        Toast.makeText(context, personnelNo + " ::: "+ password, Toast.LENGTH_LONG).show()
+//        Toast.makeText(context, personnelNo + " ::: "+ password, Toast.LENGTH_LONG).show()
 
 
         val retrofitBuilder = Retrofit.Builder()
@@ -94,7 +94,6 @@ class HistoryFragment : Fragment() {
                 }
 
             })
-
     }
     fun removeTheCard(card: Card, personnelSp: String){
 //        val gson: Gson = GsonBuilder()

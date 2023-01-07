@@ -33,7 +33,7 @@ class HowToFragment : Fragment() {
 
         adapter.setOnItemClickListener(object : HowToAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
-                Toast.makeText(context, "Cool Stuff", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "News Item", Toast.LENGTH_SHORT).show()
             }
 
         })
