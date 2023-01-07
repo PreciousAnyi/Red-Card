@@ -11,10 +11,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="129dp"
         android:src="@drawable/logo__1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +51,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/PersonnelContainer"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="364dp"
+        android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="44dp"
@@ -84,7 +85,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/PasswordContainer"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="364dp"
+        android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -119,7 +120,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ConfirmPasswordContainer"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="364dp"
+        android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -175,7 +176,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/button"
@@ -186,6 +187,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/signuptextView6"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
@@ -193,13 +195,13 @@
         android:id="@+id/signuptextView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/montserrat"
         android:text="Already have an account?"
         android:textColor="@color/red_10"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/signupSignin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.293"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_auth"
         tools:ignore="TextContrastCheck" />
