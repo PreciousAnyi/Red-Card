@@ -171,6 +171,7 @@ class IssueACardFragment : Fragment() {
 
             val studentRegNoTv = view.findViewById<View>(R.id.StudentRegNoEdit) as TextInputEditText
             val invigilatorSpNoTv = view.findViewById<View>(R.id.InvigilatorSpNoEdit) as TextInputEditText
+
             val studentRegNo = studentRegNoTv.text.toString()
             val invigilatorSpNo = invigilatorSpNoTv.text.toString()
 
@@ -190,7 +191,7 @@ class IssueACardFragment : Fragment() {
             val retrofitData = retrofitBuilder.issueCard(isshCard)
                 .enqueue(object : Callback<issueCardResponse>{
                     override fun onResponse(call: Call<issueCardResponse>, response: Response<issueCardResponse>) {
-                        Toast.makeText(context, response.body().toString(), Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, response.body()?.success.toString(), Toast.LENGTH_LONG).show()
                     }
 
                     override fun onFailure(call: Call<issueCardResponse>, t: Throwable) {
@@ -199,6 +200,8 @@ class IssueACardFragment : Fragment() {
 
                 })
         }
+        val offenceTv = view.findViewById<TextView>(R.id.offenseTV)
+        offenceTv.text = arguments?.getString("heading")
 
     }
 
