@@ -32,6 +32,7 @@
         android:layout_height="match_parent">
 
         <ImageView
+            android:id="@+id/classListImageView"
             android:layout_width="372dp"
             android:layout_height="443dp"
             android:layout_marginTop="120dp"

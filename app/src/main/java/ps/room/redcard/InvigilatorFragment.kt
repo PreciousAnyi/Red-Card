@@ -12,7 +12,7 @@ import com.google.android.material.card.MaterialCardView
 class InvigilatorFragment : Fragment() {
 
     private lateinit var issueACard: MaterialCardView
-    private lateinit var classList: MaterialCardView
+    private lateinit var savedImages: MaterialCardView
     private lateinit var attendance: MaterialCardView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,7 +22,7 @@ class InvigilatorFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_invigilator, container, false)
 
         issueACard = view.findViewById(R.id.issueACardCV)
-        classList = view.findViewById(R.id.classListCV)
+        savedImages = view.findViewById(R.id.savedImagesCV)
         attendance = view.findViewById(R.id.attendanceCV)
 
         issueACard.setOnClickListener {
@@ -31,8 +31,8 @@ class InvigilatorFragment : Fragment() {
         attendance.setOnClickListener {
             findNavController().navigate(R.id.action_invigilatorFragment_to_captureAttendanceFragment)
         }
-        classList.setOnClickListener {
-            findNavController().navigate(R.id.action_invigilatorFragment_to_downloadImageFragment)
+        savedImages.setOnClickListener {
+            findNavController().navigate(R.id.action_invigilatorFragment_to_savedImagesFragment)
         }
 
         return view

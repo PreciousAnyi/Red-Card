@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="68dp"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="0dp"
+    android:layout_margin="0dp"
+    android:padding="0dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="53dp"
+            android:id="@+id/historyPointCV"
+            android:layout_height="40dp"
+            android:src="@drawable/video_image"
+            android:layout_marginTop="14dp"/>
+
+
+        <RelativeLayout
+            android:layout_width="200sp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="80sp"
+            android:layout_centerVertical="true">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:id="@+id/invigilatorSpNoDisplay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Image Name " />
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/line"
+            android:padding="0dp"
+            android:layout_margin="0dp"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

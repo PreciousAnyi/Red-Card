@@ -88,6 +88,9 @@
         <action
             android:id="@+id/action_invigilatorFragment_to_captureAttendanceFragment"
             app:destination="@id/captureAttendanceFragment" />
+        <action
+            android:id="@+id/action_invigilatorFragment_to_savedImagesFragment"
+            app:destination="@id/savedImagesFragment" />
     </fragment>
     <fragment
         android:id="@+id/issueACardFragment"
@@ -156,5 +159,18 @@
         android:id="@+id/captureAttendanceFragment"
         android:name="ps.room.redcard.CaptureAttendanceFragment"
         android:label="fragment_capture_attendance"
-        tools:layout="@layout/fragment_capture_attendance" />
+        tools:layout="@layout/fragment_capture_attendance" >
+        <action
+            android:id="@+id/action_captureAttendanceFragment_to_invigilatorFragment"
+            app:destination="@id/invigilatorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedImagesFragment"
+        android:name="ps.room.redcard.SavedImagesFragment"
+        android:label="fragment_saved_images"
+        tools:layout="@layout/fragment_saved_images" >
+        <action
+            android:id="@+id/action_savedImagesFragment_to_downloadImageFragment"
+            app:destination="@id/downloadImageFragment" />
+    </fragment>
 </navigation>
