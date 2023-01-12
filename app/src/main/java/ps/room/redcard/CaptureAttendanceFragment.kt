@@ -39,7 +39,10 @@ class CaptureAttendanceFragment : Fragment() {
         button_capture_attendance = view.findViewById(R.id.button_capture_attendance)
         button_save_attendance = view.findViewById(R.id.button_save_attendance)
         button_save_attendance.setOnClickListener {
-            findNavController().navigate(R.id.action_captureAttendanceFragment_to_invigilatorFragment)
+//            findNavController().navigate(R.id.action_captureAttendanceFragment_to_invigilatorFragment)
+            findNavController().popBackStack()
+            findNavController().popBackStack()
+            findNavController().navigate(R.id.invigilatorFragment)
         }
 
         return view
