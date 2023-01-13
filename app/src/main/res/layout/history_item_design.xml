@@ -37,13 +37,15 @@
         </com.google.android.material.card.MaterialCardView>
 
         <RelativeLayout
-            android:layout_width="200sp"
+            android:id="@+id/cardLittleDetail"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="80sp">
+            android:layout_marginStart="65sp">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="6dp">
+                android:layout_marginTop="8dp">
 
                 <TextView
                     android:id="@+id/studentRegNoDisplay"
@@ -51,17 +53,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="Student Reg No: " />
+
                 <TextView
                     android:id="@+id/invigilatorSpNoDisplay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Invigilator Sp No: "
                     android:layout_marginTop="20dp"
-                    />
+                    android:text="Invigilator Sp No: " />
             </RelativeLayout>
         </RelativeLayout>
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/revoke"
             android:layout_width="wrap_content"
             android:layout_height="29dp"
             app:cardElevation="0dp"
@@ -73,7 +76,6 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/revoke"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_medium"

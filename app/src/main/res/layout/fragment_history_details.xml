@@ -125,11 +125,11 @@
 
     <ImageView
         android:id="@+id/invigilatorSignatureimageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100sp"
+        android:layout_height="80sp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
-        android:src="@drawable/woman_image"
+        android:src="@drawable/invigilatorsign"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -160,11 +160,11 @@
 
     <ImageView
         android:id="@+id/chiefInvigilatorSignatureImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100sp"
+        android:layout_height="80sp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
-        android:src="@drawable/woman_image"
+        android:src="@drawable/chiefsign"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/historyDetailsChiefInvigilatorPersonnelNoTV" />
 
@@ -195,11 +195,11 @@
 
     <ImageView
         android:id="@+id/examOfficerSignatureImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100sp"
+        android:layout_height="80sp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
-        android:src="@drawable/woman_image"
+        android:src="@drawable/othersign"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/historyDetailsExamOfficerPersonnelNoTV" />
 

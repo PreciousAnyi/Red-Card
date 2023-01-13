@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
@@ -31,6 +32,7 @@ class HistoryFragment : Fragment() {
     private lateinit var RvCv: RecyclerView
     private lateinit var adapter: HistoryRvAdapter
     private lateinit var items: ArrayList<Card>
+    private lateinit var modList: ArrayList<Card>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -76,13 +78,24 @@ class HistoryFragment : Fragment() {
                         }
 
                         RvCv = view.findViewById(R.id.historyRecyclerView)
-                        adapter = HistoryRvAdapter(items)
+                        adapter = HistoryRvAdapter(items, personnelNo)
                         RvCv.layoutManager = LinearLayoutManager(context)
                         RvCv.adapter = adapter
+                        adapter.switchDetailClickListener(object:HistoryRvAdapter.onSwitchClickListener{
+                            override fun onItemClick(position: Int) {
+                                val mBundle = Bundle()
+                                mBundle.putString("points", items[position].points)
+                                mBundle.putString("offence", items[position].offence)
+                                mBundle.putString("studentRegNo", items[position].studentRegNo)
+                                mBundle.putString("personnelNo", personnelNo)
+                                findNavController().navigate(R.id.action_historyFragment_to_historyDetailsFragment, mBundle)
+                            }
+                        })
                         adapter.setOnItemClickListener(object : HistoryRvAdapter.onItemClickListener{
                             override fun onItemClick(position: Int) {
                                 Toast.makeText(context, "Revoke card " + position.toString(), Toast.LENGTH_LONG).show()
                                 removeTheCard(items[position], personnelNo)
+                                modifyList(position)
                             }
 
                         })
@@ -95,6 +108,12 @@ class HistoryFragment : Fragment() {
 
             })
     }
+
+    fun modifyList(position: Int){
+        items.removeAt(position)
+        adapter.setModifiedList(items)
+    }
+
     fun removeTheCard(card: Card, personnelSp: String){
 //        val gson: Gson = GsonBuilder()
 //            .setLenient()
