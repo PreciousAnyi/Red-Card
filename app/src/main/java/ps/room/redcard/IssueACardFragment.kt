@@ -1,8 +1,11 @@
 package ps.room.redcard
 
 import android.app.Dialog
+import android.graphics.Bitmap
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.os.Environment
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +20,9 @@ import com.google.android.material.button.MaterialButton
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.kyanogen.signatureview.SignatureView
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import ps.room.redcard.api.IssueCardApi
 import ps.room.redcard.api.LoginApi
 import ps.room.redcard.data.Card
@@ -27,6 +33,9 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.FileOutputStream
 
 class IssueACardFragment : Fragment() {
 
@@ -63,13 +72,23 @@ class IssueACardFragment : Fragment() {
     private lateinit var offensepoint: String
     private lateinit var offenseTV: TextView
 
-
+    private lateinit var  personnelSignature: Bitmap
+    private lateinit var chiefSignature: Bitmap
+    private lateinit var examOffSignature: Bitmap
+    private lateinit var spsignfile: File
+    private lateinit var chiefsignfile: File
+    private lateinit var examOffsignfile: File
+//    val file = File(context?.getExternalFilesDir(Environment.DIRECTORY_PICTURES), "spsign.png")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_issue_a_card, container, false)
+
+
+
+
 
         signButton1 = view.findViewById(R.id.Signbutton)
         signButton2 = view.findViewById(R.id.ChiefInvigilatorSignbutton)
@@ -107,6 +126,14 @@ class IssueACardFragment : Fragment() {
 
         signSignature.setOnClickListener {
             // TODO: There should be a way to save signatures before dismissing
+
+            personnelSignature = signatureView.signatureBitmap
+
+
+            spsignfile = File(context?.getExternalFilesDir(Environment.DIRECTORY_PICTURES), "spsign.png")
+            val stream = FileOutputStream(spsignfile)
+            personnelSignature.compress(Bitmap.CompressFormat.PNG,100,stream)
+            stream.close()
             dialog.dismiss()
         }
         cancelIcon.setOnClickListener {
@@ -118,6 +145,11 @@ class IssueACardFragment : Fragment() {
         //for second signature pad
         signSignature2.setOnClickListener {
             // TODO: There should be a way to save signatures before dismissing
+            chiefSignature = signatureView2.signatureBitmap
+            chiefsignfile = File(context?.getExternalFilesDir(Environment.DIRECTORY_PICTURES), "chiefsign.png")
+            val stream = FileOutputStream(chiefsignfile)
+            chiefSignature.compress(Bitmap.CompressFormat.PNG,100,stream)
+            stream.close()
             dialog2.dismiss()
         }
         cancelIcon2.setOnClickListener {
@@ -129,6 +161,11 @@ class IssueACardFragment : Fragment() {
         //for third signature pad
         signSignature3.setOnClickListener {
             // TODO: There should be a way to save signatures before dismissing
+            examOffSignature = signatureView3.signatureBitmap
+            examOffsignfile = File(context?.getExternalFilesDir(Environment.DIRECTORY_PICTURES), "examOffsign.png")
+            val stream = FileOutputStream(examOffsignfile)
+            examOffSignature.compress(Bitmap.CompressFormat.PNG,100,stream)
+            stream.close()
             dialog3.dismiss()
         }
         cancelIcon3.setOnClickListener {
@@ -171,24 +208,41 @@ class IssueACardFragment : Fragment() {
 
             val studentRegNoTv = view.findViewById<View>(R.id.StudentRegNoEdit) as TextInputEditText
             val invigilatorSpNoTv = view.findViewById<View>(R.id.InvigilatorSpNoEdit) as TextInputEditText
+            val chiefInvigilatorSpNoTv = view.findViewById<View>(R.id.ChiefInvigilatorSpNoEdit) as TextInputEditText
+            val examOfficerSpNoTv = view.findViewById<View>(R.id.ExamOfficerSpNoEdit) as TextInputEditText
 
             val studentRegNo = studentRegNoTv.text.toString()
             val invigilatorSpNo = invigilatorSpNoTv.text.toString()
+            val chiefSpNo = chiefInvigilatorSpNoTv.text.toString()
+            val examOfficerSpNo = examOfficerSpNoTv.text.toString()
 
             val offensePts = arguments?.getString("offense")
             val offenseHead = arguments?.getString("heading")
-            val card = Card(offenseHead!!, offensePts!!, studentRegNo)
-            val isshCard= IssueCard(card, invigilatorSpNo)
-            val cardjson = Gson().toJson(card)
+//            val card = Card(offenseHead!!, offensePts!!, studentRegNo)
+//            val isshCard= IssueCard(card, invigilatorSpNo)
+//            val cardjson = Gson().toJson(card)
 
 //            Toast.makeText(context, offensePts + " ::: " + offenseHead + "  ::: " + studentRegNo+ " :: " + invigilatorSpNo, Toast.LENGTH_LONG).show()
             val retrofitBuilder = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://RedCard.onotuumoru.repl.co/")
+                .baseUrl("https://red-card-backend.onrender.com/")
                 .build()
                 .create(IssueCardApi::class.java)
+            val spsignReqFile = RequestBody.create(MediaType.parse("image/png"), spsignfile)
+            val spsign = MultipartBody.Part.createFormData("spsign", spsignfile.name, spsignReqFile)
+            val chiefsignReqFile = RequestBody.create(MediaType.parse("image/png"), chiefsignfile)
+            val chiefsign = MultipartBody.Part.createFormData("chiefsign", chiefsignfile.name, chiefsignReqFile)
+            val examOffsignReqFile = RequestBody.create(MediaType.parse("image/png"), examOffsignfile)
+            val examOffsign = MultipartBody.Part.createFormData("examOffsign", examOffsignfile.name, examOffsignReqFile)
+            val SpNo = RequestBody.create(MediaType.parse("text/plain"), invigilatorSpNo)
+            val points = RequestBody.create(MediaType.parse("text/plain"), offensePts)
+            val offense = RequestBody.create(MediaType.parse("text/plain"), offenseHead)
+            val stuRegNo = RequestBody.create(MediaType.parse("text/plain"), studentRegNo)
+            val chiefSp = RequestBody.create(MediaType.parse("text/plain"), chiefSpNo)
+            val examOffSp = RequestBody.create(MediaType.parse("text/plain"), examOfficerSpNo)
 
-            val retrofitData = retrofitBuilder.issueCard(isshCard)
+
+            val retrofitData = retrofitBuilder.issueCard(SpNo, points, offense, stuRegNo, chiefSp, examOffSp, spsign, chiefsign, examOffsign)
                 .enqueue(object : Callback<issueCardResponse>{
                     override fun onResponse(call: Call<issueCardResponse>, response: Response<issueCardResponse>) {
                         Toast.makeText(context, response.body()?.success.toString(), Toast.LENGTH_LONG).show()
