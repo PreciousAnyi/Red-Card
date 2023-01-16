@@ -7,6 +7,7 @@
     tools:context=".CaptureAttendanceFragment">
 
     <LinearLayout
+        android:id="@+id/linear1"
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:background="#FBD0D0"
@@ -29,16 +30,48 @@
             android:textSize="28sp" />
     </LinearLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ImageNameContainer"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_margin="16dp"
+        android:inputType="textShortMessage"
+        android:lineSpacingExtra="16sp"
+        android:textAlignment="textStart"
+        android:textSize="16sp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@null"
+        app:helperTextTextColor="#E81515"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear1"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ImageNameEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type image name"
+            android:inputType="none|textWebEmailAddress"
+            android:paddingStart="20dp"
+            android:textSize="16sp"
+            tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <ImageView
         android:id="@+id/attendance_imageview"
         android:layout_width="0dp"
         android:layout_height="364dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="136dp"
         android:layout_marginEnd="10dp"
         android:src="@drawable/take_photo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

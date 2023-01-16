@@ -73,7 +73,7 @@ class HistoryFragment : Fragment() {
                         val theCards = response.body()!!.user.cards
                         items = arrayListOf()
                         for(i in theCards.indices){
-                            val card = Card(theCards[i].offence, theCards[i].points, theCards[i].studentRegNo)
+                            val card = Card(theCards[i].offense, theCards[i].points, theCards[i].studentRegNo, theCards[i].chiefSpNo, theCards[i].examOfficerSpNo, theCards[i].spsignFileName, theCards[i].chiefsignFileName, theCards[i].examOffSignFileName)
                             items.add(card)
                         }
 
@@ -85,9 +85,15 @@ class HistoryFragment : Fragment() {
                             override fun onItemClick(position: Int) {
                                 val mBundle = Bundle()
                                 mBundle.putString("points", items[position].points)
-                                mBundle.putString("offence", items[position].offence)
+                                mBundle.putString("offense", items[position].offense)
                                 mBundle.putString("studentRegNo", items[position].studentRegNo)
+
+                                mBundle.putString("chiefSpNo", items[position].chiefSpNo)
+                                mBundle.putString("examOfficerSpNo", items[position].examOfficerSpNo)
                                 mBundle.putString("personnelNo", personnelNo)
+                                mBundle.putString("spsignFileName", items[position].spsignFileName)
+                                mBundle.putString("chiefsignFileName", items[position].chiefsignFileName)
+                                mBundle.putString("examOffSignFileName", items[position].examOffSignFileName)
                                 findNavController().navigate(R.id.action_historyFragment_to_historyDetailsFragment, mBundle)
                             }
                         })

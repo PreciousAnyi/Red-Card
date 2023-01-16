@@ -4,6 +4,7 @@ data class User(
     val __v: Int,
     val _id: String,
     val cards: List<Card>,
+    val images: List<Image>,
     val password: Any,
     val personnelNo: String,
     val phone: Any,

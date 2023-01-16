@@ -32,6 +32,12 @@ class DashboardFragment : Fragment() {
         val mBundle = Bundle()
         mBundle.putString("personnelNo", personnelNo)
         mBundle.putString("password", password)
+//        val newBundle = Bundle()
+//        newBundle.putString("personnelNo", personnelNo)
+
+//        Toast.makeText(context, personnelNo, Toast.LENGTH_LONG).show()
+//        Toast.makeText(context, personnelNo, Toast.LENGTH_LONG).show()
+//        Toast.makeText(context, personnelNo, Toast.LENGTH_LONG).show()
 
         tv.text = "Welcome " + personnelNo
 
@@ -52,7 +58,13 @@ class DashboardFragment : Fragment() {
             findNavController().navigate(R.id.action_dashboardFragment_to_historyFragment, mBundle)
         }
         invigilator.setOnClickListener {
-            findNavController().navigate(R.id.action_dashboardFragment_to_invigilatorFragment)
+
+//            Toast.makeText(context, newBundle.toString(), Toast.LENGTH_LONG).show()
+//            Toast.makeText(context, newBundle.toString(), Toast.LENGTH_LONG).show()
+//            Toast.makeText(context, newBundle.toString(), Toast.LENGTH_LONG).show()
+//            Toast.makeText(context, newBundle.toString(), Toast.LENGTH_LONG).show()
+//            Toast.makeText(context, newBundle.toString(), Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.action_dashboardFragment_to_invigilatorFragment, mBundle)
         }
 
         return view
