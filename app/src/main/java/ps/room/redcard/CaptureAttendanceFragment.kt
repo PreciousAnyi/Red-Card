@@ -7,17 +7,34 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapRegionDecoder.newInstance
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.textfield.TextInputEditText
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import ps.room.redcard.IssueACardFragment.Companion.newInstance
+import ps.room.redcard.api.IssueCardApi
+import ps.room.redcard.api.SaveImage
+import ps.room.redcard.data.issueCardResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.io.File
+import java.io.FileOutputStream
 import java.lang.reflect.Array.newInstance
 
 
@@ -27,8 +44,10 @@ class CaptureAttendanceFragment : Fragment() {
     private lateinit var button_capture_attendance: Button
     private lateinit var button_save_attendance: Button
     private lateinit var attendance_imageview: ImageView
-    private lateinit var imageBitmap: Bitmap
+    private lateinit var theimageBitmap: Bitmap
+    private lateinit var theimageFile: File
 
+    val personnelNo = arguments?.getString("personnelNo")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,9 +59,44 @@ class CaptureAttendanceFragment : Fragment() {
         button_save_attendance = view.findViewById(R.id.button_save_attendance)
         button_save_attendance.setOnClickListener {
 //            findNavController().navigate(R.id.action_captureAttendanceFragment_to_invigilatorFragment)
-            findNavController().popBackStack()
-            findNavController().popBackStack()
-            findNavController().navigate(R.id.invigilatorFragment)
+
+            val imageNameTv = view.findViewById<View>(R.id.ImageNameEdit) as TextInputEditText
+            val imageNameText = imageNameTv.text.toString() + ".png"
+            if (personnelNo != null) {
+                Log.d("theveryy sp:   ", personnelNo)
+            } else {
+                Log.d("nulllly:   ", "it is veryn nullll")
+            }
+//            theimageFile = File(context?.getExternalFilesDir(Environment.DIRECTORY_PICTURES), imageNameText)
+//            val stream = FileOutputStream(theimageFile)
+//            theimageBitmap.compress(Bitmap.CompressFormat.PNG,100,stream)
+//            stream.close()
+//            val name = RequestBody.create(MediaType.parse("text/plain"), imageNameText)
+//            val spNo = RequestBody.create(MediaType.parse("text/plain"), personnelNo)
+//
+//            val theimageReqFile = RequestBody.create(MediaType.parse("image/png"), theimageFile)
+//            val theimage = MultipartBody.Part.createFormData("spsign", theimageFile.name, theimageReqFile)
+//            val retrofitBuilder = Retrofit.Builder()
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .baseUrl("https://red-card-backend.onrender.com/")
+//                .build()
+//                .create(SaveImage::class.java)
+//            val retrofitData = retrofitBuilder.saveImage(spNo, name, theimage)
+//                .enqueue(object: Callback<issueCardResponse>{
+//                    override fun onResponse(
+//                        call: Call<issueCardResponse>,
+//                        response: Response<issueCardResponse>
+//                    ) {
+//                        Toast.makeText(context, response.body()?.success.toString(), Toast.LENGTH_LONG).show()
+//                    }
+//
+//                    override fun onFailure(call: Call<issueCardResponse>, t: Throwable) {
+//                        Toast.makeText(context, t.message, Toast.LENGTH_LONG).show()
+//                    }
+//                })
+//            findNavController().popBackStack()
+//            findNavController().popBackStack()
+//            findNavController().navigate(R.id.invigilatorFragment)
         }
 
         return view
@@ -106,12 +160,13 @@ class CaptureAttendanceFragment : Fragment() {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
             // Get the image captured by the camera
             val imageBitmap = data?.extras?.get("data") as Bitmap
+            theimageBitmap = imageBitmap
             // Set the ImageView to display the image
             attendance_imageview.setImageBitmap(imageBitmap)
         }
     }
     fun getImage():Bitmap {
-       return imageBitmap
+       return theimageBitmap
     }
 
 }

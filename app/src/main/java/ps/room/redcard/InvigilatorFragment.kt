@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.card.MaterialCardView
 
@@ -24,12 +25,19 @@ class InvigilatorFragment : Fragment() {
         issueACard = view.findViewById(R.id.issueACardCV)
         savedImages = view.findViewById(R.id.savedImagesCV)
         attendance = view.findViewById(R.id.attendanceCV)
+        val personnelNo = arguments?.getString("personnelNo")
 
+//        Toast.makeText(context, arguments?.getString("personnelNo"), Toast.LENGTH_LONG).show()
+//        Toast.makeText(context, arguments?.getString("personnelNo"), Toast.LENGTH_LONG).show()
+//        Toast.makeText(context, arguments?.getString("personnelNo"), Toast.LENGTH_LONG).show()
+//        Toast.makeText(context, arguments?.getString("personnelNo"), Toast.LENGTH_LONG).show()
+        val mBundle = Bundle()
+        mBundle.putString("personnelNo", personnelNo)
         issueACard.setOnClickListener {
             findNavController().navigate(R.id.action_invigilatorFragment_to_listOfOffenseFragment)
         }
         attendance.setOnClickListener {
-            findNavController().navigate(R.id.action_invigilatorFragment_to_captureAttendanceFragment)
+            findNavController().navigate(R.id.action_invigilatorFragment_to_captureAttendanceFragment, mBundle)
         }
         savedImages.setOnClickListener {
             findNavController().navigate(R.id.action_invigilatorFragment_to_savedImagesFragment)
