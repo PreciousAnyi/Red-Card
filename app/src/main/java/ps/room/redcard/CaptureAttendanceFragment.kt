@@ -56,48 +56,7 @@ class CaptureAttendanceFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_capture_attendance, container, false)
         attendance_imageview = view.findViewById(R.id.attendance_imageview)
         button_capture_attendance = view.findViewById(R.id.button_capture_attendance)
-        button_save_attendance = view.findViewById(R.id.button_save_attendance)
-        button_save_attendance.setOnClickListener {
-//            findNavController().navigate(R.id.action_captureAttendanceFragment_to_invigilatorFragment)
 
-            val imageNameTv = view.findViewById<View>(R.id.ImageNameEdit) as TextInputEditText
-            val imageNameText = imageNameTv.text.toString() + ".png"
-            if (personnelNo != null) {
-                Log.d("theveryy sp:   ", personnelNo)
-            } else {
-                Log.d("nulllly:   ", "it is veryn nullll")
-            }
-//            theimageFile = File(context?.getExternalFilesDir(Environment.DIRECTORY_PICTURES), imageNameText)
-//            val stream = FileOutputStream(theimageFile)
-//            theimageBitmap.compress(Bitmap.CompressFormat.PNG,100,stream)
-//            stream.close()
-//            val name = RequestBody.create(MediaType.parse("text/plain"), imageNameText)
-//            val spNo = RequestBody.create(MediaType.parse("text/plain"), personnelNo)
-//
-//            val theimageReqFile = RequestBody.create(MediaType.parse("image/png"), theimageFile)
-//            val theimage = MultipartBody.Part.createFormData("spsign", theimageFile.name, theimageReqFile)
-//            val retrofitBuilder = Retrofit.Builder()
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .baseUrl("https://red-card-backend.onrender.com/")
-//                .build()
-//                .create(SaveImage::class.java)
-//            val retrofitData = retrofitBuilder.saveImage(spNo, name, theimage)
-//                .enqueue(object: Callback<issueCardResponse>{
-//                    override fun onResponse(
-//                        call: Call<issueCardResponse>,
-//                        response: Response<issueCardResponse>
-//                    ) {
-//                        Toast.makeText(context, response.body()?.success.toString(), Toast.LENGTH_LONG).show()
-//                    }
-//
-//                    override fun onFailure(call: Call<issueCardResponse>, t: Throwable) {
-//                        Toast.makeText(context, t.message, Toast.LENGTH_LONG).show()
-//                    }
-//                })
-//            findNavController().popBackStack()
-//            findNavController().popBackStack()
-//            findNavController().navigate(R.id.invigilatorFragment)
-        }
 
         return view
     }
@@ -118,6 +77,48 @@ class CaptureAttendanceFragment : Fragment() {
         } else {
             // Permission has already been granted, set up the camera button
             setupCameraButton()
+        }
+        button_save_attendance = view.findViewById(R.id.button_save_attendance)
+        button_save_attendance.setOnClickListener {
+//            findNavController().navigate(R.id.action_captureAttendanceFragment_to_invigilatorFragment)
+            val imageNameTv = view.findViewById<View>(R.id.ImageNameEdit) as TextInputEditText
+            val imageNameText = imageNameTv.text.toString()
+//            if (personnelNo != null) {
+//                Log.d("theveryy sp:   ", personnelNo)
+//            } else {
+//                Log.d("nulllly:   ", "it is veryn nullll")
+//            }
+            val personnelNo = arguments?.getString("personnelNo")
+            theimageFile = File(context?.getExternalFilesDir(Environment.DIRECTORY_PICTURES), imageNameText)
+            val stream = FileOutputStream(theimageFile)
+            theimageBitmap.compress(Bitmap.CompressFormat.PNG,100,stream)
+            stream.close()
+            val name = RequestBody.create(MediaType.parse("text/plain"), imageNameText)
+            val spNo = RequestBody.create(MediaType.parse("text/plain"), personnelNo)
+
+            val theimageReqFile = RequestBody.create(MediaType.parse("image/png"), theimageFile)
+            val file = MultipartBody.Part.createFormData("file", theimageFile.name, theimageReqFile)
+            val retrofitBuilder = Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl("https://red-card-backend.onrender.com/")
+                .build()
+                .create(SaveImage::class.java)
+            val retrofitData = retrofitBuilder.saveImage(spNo, name, file)
+                .enqueue(object: Callback<issueCardResponse>{
+                    override fun onResponse(
+                        call: Call<issueCardResponse>,
+                        response: Response<issueCardResponse>
+                    ) {
+                        Toast.makeText(context, response.body()?.success.toString(), Toast.LENGTH_LONG).show()
+                    }
+
+                    override fun onFailure(call: Call<issueCardResponse>, t: Throwable) {
+                        Toast.makeText(context, t.message, Toast.LENGTH_LONG).show()
+                    }
+                })
+//            findNavController().popBackStack()
+//            findNavController().popBackStack()
+//            findNavController().navigate(R.id.invigilatorFragment)
         }
     }
 

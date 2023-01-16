@@ -32,12 +32,6 @@ class DashboardFragment : Fragment() {
         val mBundle = Bundle()
         mBundle.putString("personnelNo", personnelNo)
         mBundle.putString("password", password)
-//        val newBundle = Bundle()
-//        newBundle.putString("personnelNo", personnelNo)
-
-//        Toast.makeText(context, personnelNo, Toast.LENGTH_LONG).show()
-//        Toast.makeText(context, personnelNo, Toast.LENGTH_LONG).show()
-//        Toast.makeText(context, personnelNo, Toast.LENGTH_LONG).show()
 
         tv.text = "Welcome " + personnelNo
 
@@ -52,19 +46,15 @@ class DashboardFragment : Fragment() {
             findNavController().navigate(R.id.action_dashboardFragment_to_ExamSheduleFragment)
         }
         howTo.setOnClickListener {
+
             findNavController().navigate(R.id.action_dashboardFragment_to_HowToFragment)
         }
         history.setOnClickListener {
+
             findNavController().navigate(R.id.action_dashboardFragment_to_historyFragment, mBundle)
         }
         invigilator.setOnClickListener {
-
-//            Toast.makeText(context, newBundle.toString(), Toast.LENGTH_LONG).show()
-//            Toast.makeText(context, newBundle.toString(), Toast.LENGTH_LONG).show()
-//            Toast.makeText(context, newBundle.toString(), Toast.LENGTH_LONG).show()
-//            Toast.makeText(context, newBundle.toString(), Toast.LENGTH_LONG).show()
-//            Toast.makeText(context, newBundle.toString(), Toast.LENGTH_LONG).show()
-            findNavController().navigate(R.id.action_dashboardFragment_to_invigilatorFragment, mBundle)
+            findNavController().navigate(R.id.action_dashboardFragment_to_invigilatorFragment)
         }
 
         return view
@@ -79,13 +69,15 @@ class DashboardFragment : Fragment() {
         }
 
 
+
+        val personnelNo = arguments?.getString("personnelNo")
+        val password = arguments?.getString("password")
+        val mBundle = Bundle()
+        mBundle.putString("personnelNo", personnelNo)
+        mBundle.putString("password", password)
         val invigilatorCV = view.findViewById<View>(R.id.invigilatorCV)
         invigilatorCV.setOnClickListener {
-            findNavController().navigate(R.id.action_dashboardFragment_to_invigilatorFragment)
+            findNavController().navigate(R.id.action_dashboardFragment_to_invigilatorFragment, mBundle)
         }
-
-
     }
-
-
 }
