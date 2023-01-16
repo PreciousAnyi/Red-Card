@@ -26,13 +26,13 @@ class InvigilatorFragment : Fragment() {
         savedImages = view.findViewById(R.id.savedImagesCV)
         attendance = view.findViewById(R.id.attendanceCV)
         val personnelNo = arguments?.getString("personnelNo")
-
-//        Toast.makeText(context, arguments?.getString("personnelNo"), Toast.LENGTH_LONG).show()
+        val password = arguments?.getString("password")
 //        Toast.makeText(context, arguments?.getString("personnelNo"), Toast.LENGTH_LONG).show()
 //        Toast.makeText(context, arguments?.getString("personnelNo"), Toast.LENGTH_LONG).show()
 //        Toast.makeText(context, arguments?.getString("personnelNo"), Toast.LENGTH_LONG).show()
         val mBundle = Bundle()
         mBundle.putString("personnelNo", personnelNo)
+        mBundle.putString("password", password)
         issueACard.setOnClickListener {
             findNavController().navigate(R.id.action_invigilatorFragment_to_listOfOffenseFragment)
         }
@@ -40,7 +40,7 @@ class InvigilatorFragment : Fragment() {
             findNavController().navigate(R.id.action_invigilatorFragment_to_captureAttendanceFragment, mBundle)
         }
         savedImages.setOnClickListener {
-            findNavController().navigate(R.id.action_invigilatorFragment_to_savedImagesFragment)
+            findNavController().navigate(R.id.action_invigilatorFragment_to_savedImagesFragment, mBundle)
         }
 
         return view
